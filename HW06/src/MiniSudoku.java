@@ -22,7 +22,7 @@ public class MiniSudoku {
 	/**
 	 * completeRow function, checks if all given rows are compliant
 	 *
-	 * @param board  - board to check
+	 * @param board - board to check
 	 * @return - true if valid, false if invalid
 	 */
 	private static boolean completeRows(int[][] board) {
@@ -40,10 +40,10 @@ public class MiniSudoku {
 	/**
 	 * completeRow function, checks if all columns are compliant
 	 *
-	 * @param board  - board to check
+	 * @param board - board to check
 	 * @return - true if valid, false if invalid
 	 */
-	private static boolean completeCol(int colNum, int[][] board) {
+	private static boolean completeCols(int[][] board) {
 
 		for (int i = 0; i < NUM_ROWCOL; i++) {
 			boolean[] seenNums = new boolean[NUM_ROWCOL]; //Array to hold checker
@@ -54,7 +54,6 @@ public class MiniSudoku {
 		}
 		return true;
 	}
-
 
 	/**
 	 * Split-off function to check if there's duplicates in a given area
@@ -78,7 +77,7 @@ public class MiniSudoku {
 	/**
 	 * checkBocks method, let's check if the whole board works all at once
 	 *
-	 * @param board  - board to check
+	 * @param board - board to check
 	 * @return - true if valid, false if invalid
 	 */
 	private static boolean checkBlocks(int[][] board) {
@@ -99,22 +98,22 @@ public class MiniSudoku {
 		}
 
 		return true;
-	}//completeBlock
+	}
 
 
 	/**
-	 * validSolution
-	 * determines if solution is valid, all rows have each number
-	 * all cols have each number, and all blocks have each number
-	 * Use the methods above to help solve this method. You want to
-	 * check that all rows are completeRows, all cols are
-	 * completeCols, and all blocks are completeBlocks. Return true
-	 * if solution is valid, and false otherwise.
+	 * determines if solution is valid
+	 *
+	 * @param board - board-holding array
+	 * @return - Return true if solution is valid, and false otherwise.
 	 */
 	private static boolean CompleteBoard(int[][] board) {
-		// you need to implement this method
-		//replace these comments with your code
-		return true;
+		if (checkBlocks(board)) {
+			if (completeRows(board)) {
+				return completeCols(board);
+			}
+		}
+		return false;
 	}//validSolution
 
 	/**
