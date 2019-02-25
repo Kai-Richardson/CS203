@@ -25,37 +25,41 @@ public class MiniSudoku {
 	 */
 
 	/**
-	 * completeRow
-	 * determines if the given row contains numbers 1 thru NUM_ROWS,
-	 * not necessarily in that order, if so, return true and false
-	 * otherwise
-	 * You might find it helpful to declare another array with size
-	 * 5 to store booleans when you see a corresponding number.
-	 * For example, if you see a num in the 0th column of the row, you
-	 * could set seen[num] to true. Then, see if there are true
-	 * values in positions 1 through NUM_ROWS and false in position 0.
+	 *  completeRow function, checks if the given row is compliant
+	 * @param rowNum - given row to check
+	 * @param board - board to check
+	 * @return - true if valid, false if invalid
 	 */
 	private static boolean completeRow(int rowNum, int[][] board) {
 
 		boolean[] seenNums = new boolean[NUM_COLS]; //array to hold truth values
 
-		for (int j = 1; j <= board[rowNum].length; j++) { //check to see if
-			if (seenNums[j - 1]) { //if any value is already true, error
-				return false; //early returns are OK if it's clear why
+		for (int rows = 0; rows < board.length; rows++) {
+			for (int columns = 0; columns < board[rows].length; columns++) {
+				if (seenNums[columns]) { //if any value is already true, error
+					return false; //early returns are OK if it's clear why
+				}
+				seenNums[columns] = true;
 			}
-			seenNums[j - 1] = true;
 		}
-		return true;
 
-	}//completeRow
+		return true;
+	}
+
 
 	/**
 	 * completeCol
 	 * do the same for a column in the board.
 	 */
 	private static boolean completeCol(int colNum, int[][] board) {
-		// you need to implement this method
-		//replace these comments with your code
+		boolean[] seenNums = new boolean[NUM_ROWS]; //array to hold truth values
+
+		for (int row = 0; row < board[colNum].length; row++) { //check to see if
+			if (seenNums[row]) { //if any value is already true, error
+				return false; //early returns are OK if it's clear why
+			}
+			seenNums[row] = true;
+		}
 		return true;
 	}//completeCol
 
