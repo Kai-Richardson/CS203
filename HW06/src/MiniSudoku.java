@@ -36,8 +36,15 @@ public class MiniSudoku {
 	 * values in positions 1 through NUM_ROWS and false in position 0.
 	 */
 	private static boolean completeRow(int rowNum, int[][] board) {
-		// you need to implement this method
-		//replace these comments with your code
+
+		boolean[] seenNums = new boolean[NUM_COLS]; //array to hold truth values
+
+		for (int j = 1; j <= board[rowNum].length; j++) { //check to see if
+			if (seenNums[j - 1]) { //if any value is already true, error
+				return false; //early returns are OK if it's clear why
+			}
+			seenNums[j - 1] = true;
+		}
 		return true;
 
 	}//completeRow
