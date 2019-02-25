@@ -20,25 +20,20 @@ public class MiniSudoku {
 
 
 	/**
-	 * completeRow function, checks if the given row is compliant
+	 * completeRow function, checks if all given rows are compliant
 	 *
-	 * @param rowNum - given row to check
 	 * @param board  - board to check
 	 * @return - true if valid, false if invalid
 	 */
-	private static boolean completeRow(int rowNum, int[][] board) {
+	private static boolean completeRows(int[][] board) {
 
-		boolean[] seenNums = new boolean[BOARD_SIZE * 2]; //array to hold truth values
+		for (int j = 0; j < NUM_ROWCOL; j++) {
+			boolean[] seenNums = new boolean[NUM_ROWCOL];
 
-		for (int rows = 0; rows < board.length; rows++) {
-			for (int columns = 0; columns < board[rows].length; columns++) {
-				if (seenNums[columns]) { //if any value is already true, error
-					return false; //early returns are OK if it's clear why
-				}
-				seenNums[columns] = true;
+			for (int i = 0; i < NUM_ROWCOL; i++) {
+				if (columnDupeChecker(board, j, seenNums, i)) return false;
 			}
 		}
-
 		return true;
 	}
 
@@ -50,27 +45,34 @@ public class MiniSudoku {
 	 */
 	private static boolean completeCol(int colNum, int[][] board) {
 
-		for (int i = 0; i < 9; i++) {
-			boolean[] m = new boolean[9];
+		for (int i = 0; i < NUM_ROWCOL; i++) {
+			boolean[] seenNums = new boolean[NUM_ROWCOL]; //Array to hold checker
+
 			for (int j = 0; j < 9; j++) {
-				if (board[i][j] != '.') {
-					if (m[(int) (board[i][j] - '1')]) {
-						return false;
-					}
-					m[(int) (board[i][j] - '1')] = true;
-				}
+				if (columnDupeChecker(board, j, seenNums, i)) return false;
 			}
-		}
-
-		boolean[] seenNums = new boolean[BOARD_SIZE * 2]; //array to hold truth values
-
-		for (int row = 0; row < board[colNum].length; row++) { //check to see if
-			if (seenNums[row]) { //if any value is already true, error
-				return false; //early returns are OK if it's clear why
-			}
-			seenNums[row] = true;
 		}
 		return true;
+	}
+
+
+	/**
+	 * Split-off function to check if there's duplicates in a given area
+	 *
+	 * @param board    - game board to check
+	 * @param j        - parent loop j
+	 * @param seenNums - parent seenNums array
+	 * @param i        - parent loop i
+	 * @return - true if invalid, false if not
+	 */
+	private static boolean columnDupeChecker(int[][] board, int j, boolean[] seenNums, int i) {
+		if (board[i][j] != 0) {
+			if (seenNums[(board[i][j] - 1)]) {
+				return true;
+			}
+			seenNums[(board[i][j] - 1)] = true;
+		}
+		return false;
 	}
 
 	/**
