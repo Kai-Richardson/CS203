@@ -92,11 +92,11 @@ public class MiniSudoku {
 			boolean[] checkRef = new boolean[NUM_ROWCOL];
 			for (int i = block / NUM_ROWCOL; i < block / NUM_ROWCOL + BOARD_SIZE; i++) {
 				for (int j = block % NUM_ROWCOL; j < block % NUM_ROWCOL + BOARD_SIZE; j++) {
-					if (board[i][j] != '.') {
-						if (checkRef[(int) (board[i][j] - 1)]) {
+					if (board[i][j] != 0) {
+						if (checkRef[(int) (board[i - 1][j - 1])]) {
 							return false;
 						}
-						checkRef[(int) (board[i][j] - 1)] = true;
+						checkRef[(int) (board[i - 1][j - 1])] = true;
 					}
 				}
 			}
@@ -142,6 +142,9 @@ public class MiniSudoku {
 		boolean gameWon = false;
 
 		while (!gameWon) {
+
+			printBoard(board);
+
 			Scanner keyboard = new Scanner(System.in);
 			boolean validNumber = false;
 			int num = 0;
@@ -153,22 +156,18 @@ public class MiniSudoku {
 				if (!validNumber) System.out.println("Invalid, try again.");
 			}
 
-			System.out.println("What row would you like to input your number?");
+			System.out.println("What row (starting at 1) would you like to input your number?");
 			int row = keyboard.nextInt();
 
-			System.out.println("What column would you like to input your number?");
+			System.out.println("What column (starting at 1) would you like to input your number?");
 			int col = keyboard.nextInt();
 
-			if (validMove(row, col, num, board)) board[row][col] = num;
-
-			printBoard(board);
+			if (validMove(row - 1, col - 1, num, board)) board[row - 1][col - 1] = num;
 
 			if (CompleteBoard(board)) { gameWon = true; }
 		}
 
 	}
-
-
 
 
 	/**
