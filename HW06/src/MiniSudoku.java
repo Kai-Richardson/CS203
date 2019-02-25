@@ -86,7 +86,7 @@ public class MiniSudoku {
 	 * plays the Sudoku game
 	 * This is the main game engine loop
 	 */
-	public static void playGame(int board[][]) {
+	private static void playGame(int[][] board) {
 		// you need to implement this method
 		//replace these comments with your code
 		System.out.println("Sorry. The playGame method is not implemented!");
@@ -114,7 +114,7 @@ public class MiniSudoku {
 	 * by the level of the game that the user chose.
 	 * This method is ready. YOU DON'T HAVE TO EDIT THIS METHOD.
 	 */
-	public static void makeHoles(int level, int[][] board) {
+	private static void makeHoles(int level, int[][] board) {
        /* For this version of game, difficulty is defined as follows:
             Easy: less than half the number of squares are holes  
             Hard: More than half the number of squares are holes
@@ -145,7 +145,7 @@ public class MiniSudoku {
 	 * prints the Sudoku board
 	 * This method is ready. YOU DON'T HAVE TO EDIT THIS METHOD.
 	 */
-	public static void printBoard(int board[][]) {
+	public static void printBoard(int[][] board) { //This was originally in a C-style deceleration.
 		for (int i = 0; i < board.length; i++) {
 			if (i % BLOCK_SIZE == 0)
 				System.out.println("+-----+-----+");
