@@ -157,12 +157,12 @@ public class MiniSudoku {
         */
 
 		Random randNumber = new Random();
-		int holesToMake = randNumber.nextInt(NUM_ROWS * NUM_ROWS / HARD_THRESHOLD);
+		int holesToMake = randNumber.nextInt(NUM_ROWCOL * NUM_ROWCOL / HARD_THRESHOLD);
 		holesToMake++;
 		if (level == 2)
-			holesToMake = holesToMake + NUM_ROWS * NUM_ROWS / HARD_THRESHOLD;
+			holesToMake = holesToMake + NUM_ROWCOL * NUM_ROWCOL / HARD_THRESHOLD;
 
-		double remainingSquares = NUM_ROWS * NUM_ROWS;
+		double remainingSquares = NUM_ROWCOL * NUM_ROWCOL;
 		double remainingHoles = (double) holesToMake;
 
 		for (int i = 0; i < board.length; i++)
@@ -183,10 +183,10 @@ public class MiniSudoku {
 	 */
 	public static void printBoard(int[][] board) { //This was originally in a C-style declaration.
 		for (int i = 0; i < board.length; i++) {
-			if (i % BLOCK_SIZE == 0)
+			if (i % BOARD_SIZE == 0)
 				System.out.println("+-----+-----+");
 			for (int j = 0; j < board[i].length; j++) {
-				if (j % BLOCK_SIZE == 0)
+				if (j % BOARD_SIZE == 0)
 					System.out.print("| ");
 				if (board[i][j] == 0)
 					System.out.print(". ");
