@@ -16,6 +16,7 @@ public class MiniSudoku {
 	// constants
 	private static final int BOARD_SIZE = 2; //Board size in X by X
 	private static final int HARD_THRESHOLD = 2;
+	private static final int NUM_ROWCOL = BOARD_SIZE * BOARD_SIZE;
 
 
 	/**
@@ -42,13 +43,25 @@ public class MiniSudoku {
 	}
 
 	/**
-	 * completeRow function, checks if the given column is compliant
+	 * completeRow function, checks if all columns are compliant
 	 *
-	 * @param colNum - given column to check
 	 * @param board  - board to check
 	 * @return - true if valid, false if invalid
 	 */
 	private static boolean completeCol(int colNum, int[][] board) {
+
+		for (int i = 0; i < 9; i++) {
+			boolean[] m = new boolean[9];
+			for (int j = 0; j < 9; j++) {
+				if (board[i][j] != '.') {
+					if (m[(int) (board[i][j] - '1')]) {
+						return false;
+					}
+					m[(int) (board[i][j] - '1')] = true;
+				}
+			}
+		}
+
 		boolean[] seenNums = new boolean[BOARD_SIZE * 2]; //array to hold truth values
 
 		for (int row = 0; row < board[colNum].length; row++) { //check to see if
@@ -68,11 +81,11 @@ public class MiniSudoku {
 	 */
 	private static boolean checkBlocks(int[][] board) {
 
-		for (int block = 0; block < (BOARD_SIZE * BOARD_SIZE); block++) {
+		for (int block = 0; block < (NUM_ROWCOL); block++) {
 
-			boolean[] checkRef = new boolean[BOARD_SIZE * BOARD_SIZE];
-			for (int i = block / BOARD_SIZE * BOARD_SIZE; i < block / BOARD_SIZE * BOARD_SIZE + BOARD_SIZE; i++) {
-				for (int j = block % BOARD_SIZE * BOARD_SIZE; j < block % BOARD_SIZE * BOARD_SIZE + BOARD_SIZE; j++) {
+			boolean[] checkRef = new boolean[NUM_ROWCOL];
+			for (int i = block / NUM_ROWCOL; i < block / NUM_ROWCOL + BOARD_SIZE; i++) {
+				for (int j = block % NUM_ROWCOL; j < block % NUM_ROWCOL + BOARD_SIZE; j++) {
 					if (board[i][j] != '.') {
 						if (checkRef[(int) (board[i][j] - 1)]) {
 							return false;
@@ -167,7 +180,7 @@ public class MiniSudoku {
 	 * prints the Sudoku board
 	 * This method is ready. YOU DON'T HAVE TO EDIT THIS METHOD.
 	 */
-	public static void printBoard(int[][] board) { //This was originally in a C-style deceleration.
+	public static void printBoard(int[][] board) { //This was originally in a C-style declaration.
 		for (int i = 0; i < board.length; i++) {
 			if (i % BLOCK_SIZE == 0)
 				System.out.println("+-----+-----+");
