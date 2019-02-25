@@ -14,25 +14,20 @@ import java.util.Scanner;
 public class MiniSudoku {
 
 	// constants
-	private static final int NUM_ROWS = 4;
-	private static final int NUM_COLS = 4;
-	private static final int BLOCK_SIZE = 2;
+	private static final int BOARD_SIZE = 2; //Board size in X by X
 	private static final int HARD_THRESHOLD = 2;
 
-	/*======================================================================
-	 * Methods you have to implement
-	 *----------------------------------------------------------------------
-	 */
 
 	/**
-	 *  completeRow function, checks if the given row is compliant
+	 * completeRow function, checks if the given row is compliant
+	 *
 	 * @param rowNum - given row to check
-	 * @param board - board to check
+	 * @param board  - board to check
 	 * @return - true if valid, false if invalid
 	 */
 	private static boolean completeRow(int rowNum, int[][] board) {
 
-		boolean[] seenNums = new boolean[NUM_COLS]; //array to hold truth values
+		boolean[] seenNums = new boolean[BOARD_SIZE * 2]; //array to hold truth values
 
 		for (int rows = 0; rows < board.length; rows++) {
 			for (int columns = 0; columns < board[rows].length; columns++) {
@@ -46,13 +41,15 @@ public class MiniSudoku {
 		return true;
 	}
 
-
 	/**
-	 * completeCol
-	 * do the same for a column in the board.
+	 * completeRow function, checks if the given column is compliant
+	 *
+	 * @param colNum - given column to check
+	 * @param board  - board to check
+	 * @return - true if valid, false if invalid
 	 */
 	private static boolean completeCol(int colNum, int[][] board) {
-		boolean[] seenNums = new boolean[NUM_ROWS]; //array to hold truth values
+		boolean[] seenNums = new boolean[BOARD_SIZE * 2]; //array to hold truth values
 
 		for (int row = 0; row < board[colNum].length; row++) { //check to see if
 			if (seenNums[row]) { //if any value is already true, error
@@ -61,18 +58,31 @@ public class MiniSudoku {
 			seenNums[row] = true;
 		}
 		return true;
-	}//completeCol
+	}
 
 	/**
-	 * completeBlock
-	 * suppose the blocks are labeled 0 through 3 going from left to
-	 * right, top to bottom. Given a block number, determine if the
-	 * block has all 4 numbers. Return true if it does and false
-	 * otherwise
+	 * checkBocks method, let's check if the whole board works all at once
+	 *
+	 * @param board  - board to check
+	 * @return - true if valid, false if invalid
 	 */
-	private static boolean completeBlock(int blockNum, int[][] board) {
-		// you need to implement this method
-		//replace these comments with your code
+	private static boolean checkBlocks(int[][] board) {
+
+		for (int block = 0; block < (BOARD_SIZE * BOARD_SIZE); block++) {
+
+			boolean[] checkRef = new boolean[BOARD_SIZE * BOARD_SIZE];
+			for (int i = block / BOARD_SIZE * BOARD_SIZE; i < block / BOARD_SIZE * BOARD_SIZE + BOARD_SIZE; i++) {
+				for (int j = block % BOARD_SIZE * BOARD_SIZE; j < block % BOARD_SIZE * BOARD_SIZE + BOARD_SIZE; j++) {
+					if (board[i][j] != '.') {
+						if (checkRef[(int) (board[i][j] - 1)]) {
+							return false;
+						}
+						checkRef[(int) (board[i][j] - 1)] = true;
+					}
+				}
+			}
+		}
+
 		return true;
 	}//completeBlock
 
@@ -113,6 +123,7 @@ public class MiniSudoku {
 		//replace these comments with your code
 		return true;
 	}//validMove
+
 
 	/*======================================================================
 	 * Completed Methods.YOU DON'T HAVE TO EDIT THIS METHODS.
