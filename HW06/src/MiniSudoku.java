@@ -5,7 +5,12 @@
  * @author Instructors CS203
  * @author Kai Richardson
  *
- * @version Fall 2018
+ * @version 2019-02-24
+ *
+ * * * * *  * * * * * * * * /
+ * ADDITIONS: Support of any normal size sudoku grid - ex. 2x2,3x3,4x4,
+ *
+ * * * * *  * * * * * * * * \
  */
 
 import java.util.Random;
@@ -14,7 +19,7 @@ import java.util.Scanner;
 public class MiniSudoku {
 
 	// constants
-	private static final int BOARD_SIZE = 2; //Board size in X by X
+	private static final int BOARD_SIZE = 2; //Board size in X boxes by X boxes
 	private static final int HARD_THRESHOLD = 2;
 	private static final int NUM_ROWCOL = BOARD_SIZE * BOARD_SIZE;
 
@@ -108,35 +113,19 @@ public class MiniSudoku {
 	 * @return - Return true if solution is valid, and false otherwise.
 	 */
 	private static boolean CompleteBoard(int[][] board) {
-		if (checkBlocks(board)) {
-			if (completeRows(board)) {
-				return completeCols(board);
-			}
-		}
-		return false;
-	}//validSolution
+		return checkBlocks(board) && completeRows(board) && completeCols(board);
+	}
 
 	/**
-	 * playGame
-	 * plays the Sudoku game
-	 * This is the main game engine loop
-	 */
-	private static void playGame(int[][] board) {
-		// you need to implement this method
-		//replace these comments with your code
-		System.out.println("Sorry. The playGame method is not implemented!");
-	}//playGame
-
-
-	/** validMove to check if a move is valid at a loc
+	 * validMove to check if a move is valid at a loc
 	 *
-	 * @param row - row to check
-	 * @param col - col to check
+	 * @param row   - row to check
+	 * @param col   - col to check
 	 * @param value - value to test
 	 * @param board - board array to test
 	 * @return - true if valid, false otherwise
 	 */
-	public static boolean validMove(int row, int col, int value, int[][] board) {
+	private static boolean validMove(int row, int col, int value, int[][] board) {
 		//Honestly, I feel as if the challenge of sudoku comes from being able to make mistakes.
 		//If you aren't allowed to make mistakes, you'll just be able to attempt to fill in a box
 		// until you get it right.
@@ -144,11 +133,43 @@ public class MiniSudoku {
 		return true;
 	}
 
-
-	/*======================================================================
-	 * Completed Methods.YOU DON'T HAVE TO EDIT THIS METHODS.
-	 *----------------------------------------------------------------------
+	/** playGame function to run the game, main game loop called by Main
+	 *
+	 * @param board - given game board to play on
 	 */
+	private static void playGame(int[][] board) {
+
+		boolean gameWon = false;
+
+		while (!gameWon) {
+			Scanner keyboard = new Scanner(System.in);
+			boolean validNumber = false;
+			int num = 0;
+
+			while (!validNumber) {
+				System.out.println("What number would you like to input?");
+				num = keyboard.nextInt();
+				validNumber = (num <= NUM_ROWCOL) && (num > 0);
+				if (!validNumber) System.out.println("Invalid, try again.");
+			}
+
+			System.out.println("What row would you like to input your number?");
+			int row = keyboard.nextInt();
+
+			System.out.println("What column would you like to input your number?");
+			int col = keyboard.nextInt();
+
+			if (validMove(row, col, num, board)) board[row][col] = num;
+
+			printBoard(board);
+
+			if (CompleteBoard(board)) { gameWon = true; }
+		}
+
+	}
+
+
+
 
 	/**
 	 * makeHoles
@@ -216,7 +237,7 @@ public class MiniSudoku {
 
 		System.out.println("Welcome to Mini-Sudoku game");
 		boolean doneInitialize = false;
-		do {
+		while (!doneInitialize) {
 			System.out.println("Which level you would like to play?");
 			System.out.println("Please enter 1 for easy and 2 for hard.");
 			Scanner keyboard = new Scanner(System.in);
@@ -228,7 +249,7 @@ public class MiniSudoku {
 			} else {
 				System.out.println("Sorry, this is not a valid level. Please try again.");
 			}
-		} while (!doneInitialize);
+		}
 
 		playGame(board);
 	}
