@@ -32,10 +32,11 @@ public class MiniSudoku {
 	 */
 	private static boolean completeRows(int[][] board) {
 
+		// Set to store characters seen so far.
+		boolean[] seenNums = new boolean[NUM_ROWCOL - 1];
+
 		for (int row = 0; row < NUM_ROWCOL; row++) {
 
-			// Set to store characters seen so far.
-			boolean[] seenNums = new boolean[NUM_ROWCOL];
 
 			for (int col = 0; col < NUM_ROWCOL; col++) {
 				if (board[row][col] != 0) {
@@ -44,7 +45,7 @@ public class MiniSudoku {
 					if (seenNums[(board[row][col] - 1)]) {
 						return false;
 					}
-					seenNums[board[row][col] - 1] = true;
+					seenNums[board[row][col]] = true;
 				}
 			}
 		}
@@ -59,10 +60,10 @@ public class MiniSudoku {
 	 */
 	private static boolean completeCols(int[][] board) {
 
+		boolean[] seenNums = new boolean[NUM_ROWCOL - 1];
+
 		for (int col = 0; col < NUM_ROWCOL; col++) {
 
-			// Set to store characters seen so far.
-			boolean[] seenNums = new boolean[NUM_ROWCOL];
 
 			for (int row = 0; row < NUM_ROWCOL; row++) {
 				if (board[row][col] != 0) {
@@ -71,7 +72,7 @@ public class MiniSudoku {
 					if (seenNums[(board[row][col] - 1)]) {
 						return false;
 					}
-					seenNums[board[row][col] - 1] = true;
+					seenNums[board[row][col]] = true;
 				}
 			}
 		}
@@ -133,8 +134,7 @@ public class MiniSudoku {
 		return true;
 	}
 
-	/**
-	 * playGame function to run the game, main game loop called by Main
+	/** playGame function to run the game, main game loop called by Main
 	 *
 	 * @param board - given game board to play on
 	 */
@@ -165,10 +165,9 @@ public class MiniSudoku {
 
 			if (validMove(row - 1, col - 1, num, board)) board[row - 1][col - 1] = num;
 
-			if (CompleteBoard(board)) {
-				gameWon = true;
-			}
+			if (CompleteBoard(board)) { gameWon = true; }
 		}
+
 	}
 
 
