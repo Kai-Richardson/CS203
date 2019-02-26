@@ -8,7 +8,7 @@
  * @version 2019-02-24
  *
  * * * * *  * * * * * * * * /
- * ADDITIONS: Support of any normal size sudoku grid - ex. 2x2,3x3,4x4,
+ * ADDITIONS:
  *
  * * * * *  * * * * * * * * \
  */
@@ -132,7 +132,8 @@ public class MiniSudoku {
 		return true;
 	}
 
-	/** playGame function to run the game, main game loop called by Main
+	/**
+	 * playGame function to run the game, main game loop called by Main
 	 *
 	 * @param board - given game board to play on
 	 */
@@ -163,7 +164,9 @@ public class MiniSudoku {
 
 			if (validMove(row - 1, col - 1, num, board)) board[row - 1][col - 1] = num;
 
-			if (CompleteBoard(board)) { gameWon = true; }
+			if (CompleteBoard(board)) {
+				gameWon = true;
+			}
 		}
 
 		printBoard(board);
