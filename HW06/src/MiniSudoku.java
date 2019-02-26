@@ -32,11 +32,21 @@ public class MiniSudoku {
 	 */
 	private static boolean completeRows(int[][] board) {
 
-		for (int j = 0; j < NUM_ROWCOL; j++) {
-			boolean[] seenNums = new boolean[NUM_ROWCOL];
+		// Set to store characters seen so far.
+		boolean[] seenNums = new boolean[NUM_ROWCOL - 1];
 
-			for (int i = 0; i < NUM_ROWCOL; i++) {
-				if (columnDupeChecker(board, j, seenNums, i)) return false;
+		for (int row = 0; row < NUM_ROWCOL; row++) {
+
+
+			for (int col = 0; col < NUM_ROWCOL; col++) {
+				if (board[row][col] != 0) {
+
+					// If already encountered before, return false
+					if (seenNums[(board[row][col] - 1)]) {
+						return false;
+					}
+					seenNums[board[row][col]] = true;
+				}
 			}
 		}
 		return true;
@@ -50,34 +60,25 @@ public class MiniSudoku {
 	 */
 	private static boolean completeCols(int[][] board) {
 
-		for (int i = 0; i < NUM_ROWCOL; i++) {
-			boolean[] seenNums = new boolean[NUM_ROWCOL]; //Array to hold checker
+		boolean[] seenNums = new boolean[NUM_ROWCOL - 1];
 
-			for (int j = 0; j < 9; j++) {
-				if (columnDupeChecker(board, j, seenNums, i)) return false;
+		for (int col = 0; col < NUM_ROWCOL; col++) {
+
+
+			for (int row = 0; row < NUM_ROWCOL; row++) {
+				if (board[row][col] != 0) {
+
+					// If already encountered before, return false
+					if (seenNums[(board[row][col] - 1)]) {
+						return false;
+					}
+					seenNums[board[row][col]] = true;
+				}
 			}
 		}
 		return true;
 	}
 
-	/**
-	 * Split-off function to check if there's duplicates in a given area
-	 *
-	 * @param board    - game board to check
-	 * @param j        - parent loop j
-	 * @param seenNums - parent seenNums array
-	 * @param i        - parent loop i
-	 * @return - true if invalid, false if not
-	 */
-	private static boolean columnDupeChecker(int[][] board, int j, boolean[] seenNums, int i) {
-		if (board[i][j] != 0) {
-			if (seenNums[(board[i][j] - 1)]) {
-				return true;
-			}
-			seenNums[(board[i][j] - 1)] = true;
-		}
-		return false;
-	}
 
 	/**
 	 * checkBocks method, let's check if the whole board works all at once
@@ -90,13 +91,13 @@ public class MiniSudoku {
 		for (int block = 0; block < (NUM_ROWCOL); block++) {
 
 			boolean[] checkRef = new boolean[NUM_ROWCOL];
-			for (int i = block / NUM_ROWCOL; i < block / NUM_ROWCOL + BOARD_SIZE; i++) {
-				for (int j = block % NUM_ROWCOL; j < block % NUM_ROWCOL + BOARD_SIZE; j++) {
+			for (int i = block / NUM_ROWCOL; i < block / NUM_ROWCOL - 1 + BOARD_SIZE; i++) {
+				for (int j = block % NUM_ROWCOL; j < block % NUM_ROWCOL - 1 + BOARD_SIZE; j++) {
 					if (board[i][j] != 0) {
-						if (checkRef[(int) (board[i - 1][j - 1])]) {
+						if (checkRef[(int) (board[i][j]) - 1]) {
 							return false;
 						}
-						checkRef[(int) (board[i - 1][j - 1])] = true;
+						checkRef[(int) (board[i][j]) - 1] = true;
 					}
 				}
 			}
