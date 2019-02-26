@@ -32,21 +32,20 @@ public class MiniSudoku {
 	 */
 	private static boolean completeRows(int[][] board) {
 
-		// Set to store characters seen so far.
-		boolean[] seenNums = new boolean[NUM_ROWCOL - 1];
-
 		for (int row = 0; row < NUM_ROWCOL; row++) {
 
+			// Set to store characters seen so far.
+			boolean[] seenRowNums = new boolean[NUM_ROWCOL];
 
 			for (int col = 0; col < NUM_ROWCOL; col++) {
 				if (board[row][col] != 0) {
 
 					// If already encountered before, return false
-					if (seenNums[(board[row][col] - 1)]) {
+					if (seenRowNums[(board[row][col] - 1)]) {
 						return false;
 					}
-					seenNums[board[row][col]] = true;
-				}
+					seenRowNums[board[row][col] - 1] = true;
+				} else return false;
 			}
 		}
 		return true;
@@ -60,20 +59,20 @@ public class MiniSudoku {
 	 */
 	private static boolean completeCols(int[][] board) {
 
-		boolean[] seenNums = new boolean[NUM_ROWCOL - 1];
-
 		for (int col = 0; col < NUM_ROWCOL; col++) {
 
+			// Set to store characters seen so far.
+			boolean[] seenColNums = new boolean[NUM_ROWCOL];
 
 			for (int row = 0; row < NUM_ROWCOL; row++) {
 				if (board[row][col] != 0) {
 
 					// If already encountered before, return false
-					if (seenNums[(board[row][col] - 1)]) {
+					if (seenColNums[(board[row][col] - 1)]) {
 						return false;
 					}
-					seenNums[board[row][col]] = true;
-				}
+					seenColNums[board[row][col] - 1] = true;
+				} else return false;
 			}
 		}
 		return true;
@@ -94,15 +93,14 @@ public class MiniSudoku {
 			for (int i = block / NUM_ROWCOL; i < block / NUM_ROWCOL - 1 + BOARD_SIZE; i++) {
 				for (int j = block % NUM_ROWCOL; j < block % NUM_ROWCOL - 1 + BOARD_SIZE; j++) {
 					if (board[i][j] != 0) {
-						if (checkRef[(int) (board[i][j]) - 1]) {
+						if (checkRef[(board[i][j]) - 1]) {
 							return false;
 						}
-						checkRef[(int) (board[i][j]) - 1] = true;
-					}
+						checkRef[(board[i][j]) - 1] = true;
+					} else return false;
 				}
 			}
 		}
-
 		return true;
 	}
 
@@ -168,6 +166,10 @@ public class MiniSudoku {
 			if (CompleteBoard(board)) { gameWon = true; }
 		}
 
+		printBoard(board);
+
+		System.out.println("Congratulations! You've won the game. Great work.");
+
 	}
 
 
@@ -208,7 +210,7 @@ public class MiniSudoku {
 	 * prints the Sudoku board
 	 * This method is ready. YOU DON'T HAVE TO EDIT THIS METHOD.
 	 */
-	public static void printBoard(int[][] board) { //This was originally in a C-style declaration.
+	private static void printBoard(int[][] board) { //This was originally in a C-style declaration.
 		for (int i = 0; i < board.length; i++) {
 			if (i % BOARD_SIZE == 0)
 				System.out.println("+-----+-----+");
@@ -254,5 +256,4 @@ public class MiniSudoku {
 		playGame(board);
 	}
 
-
-}//class Sudoku
+}
