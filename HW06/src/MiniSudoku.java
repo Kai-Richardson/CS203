@@ -5,7 +5,7 @@
  * @author Instructors CS203
  * @author Kai Richardson
  *
- * @version 2019-02-24
+ * @version 2019-02-26
  *
  * * * * *  * * * * * * * * /
  * ADDITIONS:
@@ -20,10 +20,10 @@ import java.util.Scanner;
 
 public class MiniSudoku {
 
+	private static final int HARD_THRESHOLD = 2;
 	// constants
 	private static int BOARD_SIZE = 2; //Board size in X boxes by X boxes
-	private static final int HARD_THRESHOLD = 2;
-	private static int NUM_ROWCOL = BOARD_SIZE * BOARD_SIZE;
+	private static int NUM_ROWCOL = BOARD_SIZE * BOARD_SIZE; //Abstracted number of rows and columns
 
 
 	/**
@@ -149,7 +149,6 @@ public class MiniSudoku {
 		Random randNumber = new Random();
 		int holesToMake = randNumber.nextInt(NUM_ROWCOL * NUM_ROWCOL / HARD_THRESHOLD);
 		holesToMake++;
-		holesToMake = holesToMake * (BOARD_SIZE - 1);
 		if (level == 2)
 			holesToMake = holesToMake + NUM_ROWCOL * NUM_ROWCOL / HARD_THRESHOLD;
 
@@ -292,7 +291,7 @@ public class MiniSudoku {
 
 		ArrayList<Array2D> boardHolder = initBoard();
 
-		int[][] played_board = {{0},{0}};
+		int[][] played_board = {{0}, {0}};
 
 		System.out.println("Welcome to Mini-Sudoku game");
 		boolean doneInitialize = false;
@@ -339,4 +338,3 @@ public class MiniSudoku {
 	}
 
 }
-
