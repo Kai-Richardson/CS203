@@ -9,19 +9,21 @@
  *
  * * * * *  * * * * * * * * /
  * ADDITIONS:
+ *          Supports NxN sized static boards. Currently 2x2 and 3x3. Just declare more sizes in initBoard()
  *
  * * * * *  * * * * * * * * \
  */
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class MiniSudoku {
 
 	// constants
-	private static final int BOARD_SIZE = 2; //Board size in X boxes by X boxes
+	private static int BOARD_SIZE = 2; //Board size in X boxes by X boxes
 	private static final int HARD_THRESHOLD = 2;
-	private static final int NUM_ROWCOL = BOARD_SIZE * BOARD_SIZE;
+	private static int NUM_ROWCOL = BOARD_SIZE * BOARD_SIZE;
 
 
 	/**
@@ -133,6 +135,39 @@ public class MiniSudoku {
 	}
 
 	/**
+	 * makeHoles
+	 * creates random holes in the board. The number of holes will be determined
+	 * by the level of the game that the user chose.
+	 * This method is ready. YOU DON'T HAVE TO EDIT THIS METHOD.
+	 */
+	private static void makeHoles(int level, int[][] board) {
+       /* For this version of game, difficulty is defined as follows:
+            Easy: less than half the number of squares are holes
+            Hard: More than half the number of squares are holes
+        */
+
+		Random randNumber = new Random();
+		int holesToMake = randNumber.nextInt(NUM_ROWCOL * NUM_ROWCOL / HARD_THRESHOLD);
+		holesToMake++;
+		holesToMake = holesToMake * (BOARD_SIZE - 1);
+		if (level == 2)
+			holesToMake = holesToMake + NUM_ROWCOL * NUM_ROWCOL / HARD_THRESHOLD;
+
+		double remainingSquares = NUM_ROWCOL * NUM_ROWCOL;
+		double remainingHoles = (double) holesToMake;
+
+		for (int i = 0; i < board.length; i++)
+			for (int j = 0; j < board[i].length; j++) {
+				double holeChance = remainingHoles / remainingSquares;
+				if (Math.random() <= holeChance) {
+					board[i][j] = 0;
+					remainingHoles--;
+				}
+				remainingSquares--;
+			}
+	}
+
+	/**
 	 * playGame function to run the game, main game loop called by Main
 	 *
 	 * @param board - given game board to play on
@@ -175,39 +210,6 @@ public class MiniSudoku {
 
 	}
 
-
-	/**
-	 * makeHoles
-	 * creates random holes in the board. The number of holes will be determined
-	 * by the level of the game that the user chose.
-	 * This method is ready. YOU DON'T HAVE TO EDIT THIS METHOD.
-	 */
-	private static void makeHoles(int level, int[][] board) {
-       /* For this version of game, difficulty is defined as follows:
-            Easy: less than half the number of squares are holes  
-            Hard: More than half the number of squares are holes
-        */
-
-		Random randNumber = new Random();
-		int holesToMake = randNumber.nextInt(NUM_ROWCOL * NUM_ROWCOL / HARD_THRESHOLD);
-		holesToMake++;
-		if (level == 2)
-			holesToMake = holesToMake + NUM_ROWCOL * NUM_ROWCOL / HARD_THRESHOLD;
-
-		double remainingSquares = NUM_ROWCOL * NUM_ROWCOL;
-		double remainingHoles = (double) holesToMake;
-
-		for (int i = 0; i < board.length; i++)
-			for (int j = 0; j < board[i].length; j++) {
-				double holeChance = remainingHoles / remainingSquares;
-				if (Math.random() <= holeChance) {
-					board[i][j] = 0;
-					remainingHoles--;
-				}
-				remainingSquares--;
-			}
-	}
-
 	/**
 	 * printBoard
 	 * prints the Sudoku board
@@ -215,8 +217,9 @@ public class MiniSudoku {
 	 */
 	private static void printBoard(int[][] board) { //This was originally in a C-style declaration.
 		for (int i = 0; i < board.length; i++) {
-			if (i % BOARD_SIZE == 0)
-				System.out.println("+-----+-----+");
+			if (i % BOARD_SIZE == 0) {
+				buildPrintedRows();
+			}
 			for (int j = 0; j < board[i].length; j++) {
 				if (j % BOARD_SIZE == 0)
 					System.out.print("| ");
@@ -225,10 +228,59 @@ public class MiniSudoku {
 				else
 					System.out.print(board[i][j] + " ");
 			}
+
 			System.out.print("| ");
 			System.out.println();
 		}
-		System.out.println("+-----+-----+");
+		buildPrintedRows();
+	}
+
+	/**
+	 * A method to build the rows to print, to cut down on duplicate code.
+	 */
+	private static void buildPrintedRows() {
+		System.out.print("+ ");
+		for (int k = 0; k < BOARD_SIZE; k++) {
+			for (int l = 0; l < BOARD_SIZE; l++) {
+				System.out.print("- ");
+			}
+			System.out.print("+ ");
+		}
+		System.out.println();
+	}
+
+	/**
+	 * Creates the boards for the game to use.
+	 *
+	 * @return boardHold - the arrayList of 2d array object holders
+	 */
+	private static ArrayList<Array2D> initBoard() {
+
+		ArrayList<Array2D> boardHold = new ArrayList<>();
+
+		int[][] board2 = {
+				{1, 2, 3, 4},
+				{3, 4, 1, 2},
+				{4, 3, 2, 1},
+				{2, 1, 4, 3}};
+		int[][] board3 = {
+				{5, 3, 4, 6, 7, 8, 9, 1, 2},
+				{6, 7, 2, 1, 9, 5, 3, 4, 8},
+				{1, 9, 8, 3, 4, 2, 5, 6, 7},
+
+				{8, 5, 9, 7, 6, 1, 4, 2, 3},
+				{4, 2, 6, 8, 5, 3, 7, 9, 1},
+				{7, 1, 3, 9, 2, 4, 8, 5, 6},
+
+				{9, 6, 1, 5, 3, 7, 2, 8, 4},
+				{2, 8, 7, 4, 1, 9, 6, 3, 5},
+				{3, 4, 5, 2, 8, 6, 1, 7, 9}
+		};
+
+		boardHold.add(0, new Array2D(board2));
+		boardHold.add(1, new Array2D(board3));
+
+		return boardHold;
 	}
 
 	/**
@@ -237,26 +289,54 @@ public class MiniSudoku {
 	 * This method is ready. YOU DON'T HAVE TO EDIT THIS METHOD.
 	 */
 	public static void main(String[] str) {
-		// a 2D array to store the playing board
-		int[][] board = {{1, 2, 3, 4}, {3, 4, 1, 2}, {4, 3, 2, 1}, {2, 1, 4, 3}};
+
+		ArrayList<Array2D> boardHolder = initBoard();
+
+		int[][] played_board = {{0},{0}};
 
 		System.out.println("Welcome to Mini-Sudoku game");
 		boolean doneInitialize = false;
 		while (!doneInitialize) {
-			System.out.println("Which level you would like to play?");
+			System.out.println("Which level would you like to play?");
 			System.out.println("Please enter 1 for easy and 2 for hard.");
 			Scanner keyboard = new Scanner(System.in);
 			int level = keyboard.nextInt();
 
+			System.out.println("Which size board would you like to play?");
+			System.out.println("Please enter 2 for 2x2 and 3 for 3x3.");
+			int board_number = keyboard.nextInt();
+
 			if (level == 1 || level == 2) {
-				makeHoles(level, board);
-				doneInitialize = true;
+				BOARD_SIZE = board_number;
+
+				for (Array2D obj : boardHolder) {
+					if ((boardHolder.indexOf(obj) + 2) == board_number) {
+						played_board = obj.array;
+						makeHoles(level, played_board);
+						doneInitialize = true;
+						break;
+					}
+					System.out.println("Sorry, that's not a valid board size. Please try again.");
+				}
 			} else {
 				System.out.println("Sorry, this is not a valid level. Please try again.");
 			}
 		}
 
-		playGame(board);
+		playGame(played_board);
+	}
+
+	/**
+	 * Object wrapper to hold 2D arrays
+	 * from: stackoverflow.com/questions/10785760
+	 */
+	static class Array2D {
+		int[][] array;
+
+		private Array2D(int[][] initialArray) {
+			array = initialArray;
+		}
 	}
 
 }
+
