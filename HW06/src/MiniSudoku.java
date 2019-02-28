@@ -312,14 +312,15 @@ class MiniSudoku {
 
 				//go through all arrays
 				for (Array2D obj : boardHolder) {
+
 					if ((boardHolder.indexOf(obj) + 2) == board_number) { //if the board is the right dimension, use it
 						played_board = obj.array;
 						makeHoles(level, played_board);
 						doneInitialize = true;
 						break;
 					}
-					System.out.println("Sorry, that's not a valid board size. Please try again.");
 				}
+				if (!doneInitialize) System.out.println("Sorry, that's not a valid board size. Please try again.");
 			} else {
 				System.out.println("Sorry, this is not a valid level. Please try again.");
 			}
