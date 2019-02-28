@@ -5,7 +5,7 @@
  * @author Instructors CS203
  * @author Kai Richardson
  *
- * @version 2019-02-26
+ * @version 2019-02-27
  *
  * * * * *  * * * * * * * * /
  * ADDITIONS:
@@ -309,6 +309,7 @@ class MiniSudoku {
 
 			if (level == 1 || level == 2) {
 				BOARD_SIZE = board_number;
+				NUM_ROWCOL = BOARD_SIZE * BOARD_SIZE; //Need to set it again, since it's static.
 
 				//go through all arrays
 				for (Array2D obj : boardHolder) {
