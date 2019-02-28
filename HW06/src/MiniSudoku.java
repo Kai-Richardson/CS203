@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class MiniSudoku {
+class MiniSudoku {
 
 	private static final int HARD_THRESHOLD = 2;
 	// constants
@@ -91,14 +91,14 @@ public class MiniSudoku {
 
 		for (int block = 0; block < (NUM_ROWCOL); block++) {
 
-			boolean[] checkRef = new boolean[NUM_ROWCOL];
-			for (int i = block / NUM_ROWCOL; i < block / NUM_ROWCOL - 1 + BOARD_SIZE; i++) {
-				for (int j = block % NUM_ROWCOL; j < block % NUM_ROWCOL - 1 + BOARD_SIZE; j++) {
-					if (board[i][j] != 0) {
-						if (checkRef[(board[i][j]) - 1]) {
+			boolean[] checkRef = new boolean[NUM_ROWCOL]; //init bool to store if we've seen a number
+			for (int i = block / NUM_ROWCOL; i < block / NUM_ROWCOL - 1 + BOARD_SIZE; i++) { //iterate block row
+				for (int j = block % NUM_ROWCOL; j < block % NUM_ROWCOL - 1 + BOARD_SIZE; j++) { //..  ..    col
+					if (board[i][j] != 0) { //if it's not empty
+						if (checkRef[(board[i][j]) - 1]) { //if we've seen it before
 							return false;
 						}
-						checkRef[(board[i][j]) - 1] = true;
+						checkRef[(board[i][j]) - 1] = true; // say that we've seen it
 					} else return false;
 				}
 			}
@@ -186,7 +186,7 @@ public class MiniSudoku {
 			while (!validNumber) {
 				System.out.println("What number would you like to input?");
 				num = keyboard.nextInt();
-				validNumber = (num <= NUM_ROWCOL) && (num > 0);
+				validNumber = (num <= NUM_ROWCOL) && (num > 0); //only allow numbers from 1-number of rows/cols
 				if (!validNumber) System.out.println("Invalid, try again.");
 			}
 
@@ -196,9 +196,9 @@ public class MiniSudoku {
 			System.out.println("What column (starting at 1) would you like to input your number?");
 			int col = keyboard.nextInt();
 
-			if (validMove(row - 1, col - 1, num, board)) board[row - 1][col - 1] = num;
+			if (validMove(row - 1, col - 1, num, board)) board[row - 1][col - 1] = num; //if valid, set
 
-			if (CompleteBoard(board)) {
+			if (CompleteBoard(board)) { //check for win
 				gameWon = true;
 			}
 		}
@@ -214,21 +214,21 @@ public class MiniSudoku {
 	 * prints the Sudoku board
 	 * This method is ready. YOU DON'T HAVE TO EDIT THIS METHOD.
 	 */
-	private static void printBoard(int[][] board) { //This was originally in a C-style declaration.
+	private static void printBoard(int[][] board) { //This was originally in a C-style declaration??
 		for (int i = 0; i < board.length; i++) {
-			if (i % BOARD_SIZE == 0) {
+			if (i % BOARD_SIZE == 0) { //only every N rows
 				buildPrintedRows();
 			}
-			for (int j = 0; j < board[i].length; j++) {
+			for (int j = 0; j < board[i].length; j++) { //how often to write a 'column'
 				if (j % BOARD_SIZE == 0)
 					System.out.print("| ");
-				if (board[i][j] == 0)
+				if (board[i][j] == 0) //print a period if the array loc is empty
 					System.out.print(". ");
 				else
 					System.out.print(board[i][j] + " ");
 			}
 
-			System.out.print("| ");
+			System.out.print("| "); //bound the edge
 			System.out.println();
 		}
 		buildPrintedRows();
@@ -239,8 +239,8 @@ public class MiniSudoku {
 	 */
 	private static void buildPrintedRows() {
 		System.out.print("+ ");
-		for (int k = 0; k < BOARD_SIZE; k++) {
-			for (int l = 0; l < BOARD_SIZE; l++) {
+		for (int k = 0; k < BOARD_SIZE; k++) { //how many 'boxes' to bound
+			for (int l = 0; l < BOARD_SIZE; l++) { //how many 'rows' of numbers to bound
 				System.out.print("- ");
 			}
 			System.out.print("+ ");
@@ -262,6 +262,7 @@ public class MiniSudoku {
 				{3, 4, 1, 2},
 				{4, 3, 2, 1},
 				{2, 1, 4, 3}};
+
 		int[][] board3 = {
 				{5, 3, 4, 6, 7, 8, 9, 1, 2},
 				{6, 7, 2, 1, 9, 5, 3, 4, 8},
@@ -289,12 +290,13 @@ public class MiniSudoku {
 	 */
 	public static void main(String[] str) {
 
-		ArrayList<Array2D> boardHolder = initBoard();
+		ArrayList<Array2D> boardHolder = initBoard(); //Init board method
 
-		int[][] played_board = {{0}, {0}};
+		int[][] played_board = {{0}, {0}}; //Temp board holder
 
 		System.out.println("Welcome to Mini-Sudoku game");
 		boolean doneInitialize = false;
+
 		while (!doneInitialize) {
 			System.out.println("Which level would you like to play?");
 			System.out.println("Please enter 1 for easy and 2 for hard.");
@@ -308,8 +310,9 @@ public class MiniSudoku {
 			if (level == 1 || level == 2) {
 				BOARD_SIZE = board_number;
 
+				//go through all arrays
 				for (Array2D obj : boardHolder) {
-					if ((boardHolder.indexOf(obj) + 2) == board_number) {
+					if ((boardHolder.indexOf(obj) + 2) == board_number) { //if the board is the right dimension, use it
 						played_board = obj.array;
 						makeHoles(level, played_board);
 						doneInitialize = true;
