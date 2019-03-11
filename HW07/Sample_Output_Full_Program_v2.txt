@@ -1,0 +1,190 @@
+Here are our customer accounts: 
+Customer Name: Obi-Wan Kenobi
+Account ID: 108108
+Address: 42 Tatooine
+Number of Books Purchased: 0
+Books Purchased: <none>
+
+Customer Name: Tony Stark
+Account ID: 101010
+Address: 10880 Malibu Point
+Number of Books Purchased: 0
+Books Purchased: <none>
+--------------
+Here are our books: 
+Book ID: 1
+Title: I Robot
+Author: Isaac Asimov
+Year Published: 1950
+Price: $12.00
+Number in stock: 1
+Number sold: 0
+
+Book ID: 2
+Title: Ender's Game 
+Author: Orson Scott Card
+Year Published: 1985
+Price: $10.10
+Number in stock: 5
+Number sold: 0
+--------------
+Obi-Wan Kenobi would like to buy I Robot
+Sorry, the customer must have a credit card number on file before purchasing a book
+Here is the updated info on the customer's account and the book
+Customer Name: Obi-Wan Kenobi
+Account ID: 108108
+Address: 42 Tatooine
+Number of Books Purchased: 0
+Books Purchased: <none>
+
+Book ID: 1
+Title: I Robot
+Author: Isaac Asimov
+Year Published: 1950
+Price: $12.00
+Number in stock: 1
+Number sold: 0
+--------------
+Obi-Wan Kenobi would like to update his credit card number
+Here is the updated info on the customer's account
+Credit Card Number: 0001 0001 0001 0001
+
+Obi-Wan Kenobi would like to buy I Robot
+Here is the updated info on the customer's account and the book
+Customer Name: Obi-Wan Kenobi
+Account ID: 108108
+Address: 42 Tatooine
+Number of Books Purchased: 1
+Books Purchased: I Robot
+
+Book ID: 1
+Title: I Robot
+Author: Isaac Asimov
+Year Published: 1950
+Price: $12.00
+Number in stock: 0
+Number sold: 1
+--------------
+Obi-Wan Kenobi would like to buy I Robot again
+Sorry, we don't have any copies available
+Here is the updated info on the customer's account and the book
+Customer Name: Obi-Wan Kenobi
+Account ID: 108108
+Address: 42 Tatooine
+Number of Books Purchased: 1
+Books Purchased: I Robot
+
+Book ID: 1
+Title: I Robot
+Author: Isaac Asimov
+Year Published: 1950
+Price: $12.00
+Number in stock: 0
+Number sold: 1
+--------------
+Tony Stark would like to update his credit card number
+Here is the updated info on the customer's account
+Credit Card Number: 1001 1001 1001 1001
+
+Tony Stark would like to buy 10 copies of Ender's Game 
+Sorry, we don't have enough copies available
+Here is the updated info on the customer's account and the book
+Customer Name: Tony Stark
+Account ID: 101010
+Address: 10880 Malibu Point
+Number of Books Purchased: 0
+Books Purchased: <none>
+
+Book ID: 2
+Title: Ender's Game 
+Author: Orson Scott Card
+Year Published: 1985
+Price: $10.10
+Number in stock: 5
+Number sold: 0
+--------------
+Tony Stark would like to buy -3 copies of Ender's Game 
+Sorry, that is an invalid input for the number of copies
+Here is the updated info on the customer's account and the book
+Customer Name: Tony Stark
+Account ID: 101010
+Address: 10880 Malibu Point
+Number of Books Purchased: 0
+Books Purchased: <none>
+
+Book ID: 2
+Title: Ender's Game 
+Author: Orson Scott Card
+Year Published: 1985
+Price: $10.10
+Number in stock: 5
+Number sold: 0
+--------------
+Tony Stark would like to buy 4 copies of Ender's Game 
+Here is the updated info on the customer's account and the book
+Customer Name: Tony Stark
+Account ID: 101010
+Address: 10880 Malibu Point
+Number of Books Purchased: 4
+Books Purchased: Ender's Game , Ender's Game , Ender's Game , Ender's Game 
+
+Book ID: 2
+Title: Ender's Game 
+Author: Orson Scott Card
+Year Published: 1985
+Price: $10.10
+Number in stock: 1
+Number sold: 4
+--------------
+We are restocking I Robot with 10 copies
+Here is the updated info for I Robot
+Book ID: 1
+Title: I Robot
+Author: Isaac Asimov
+Year Published: 1950
+Price: $12.00
+Number in stock: 10
+Number sold: 1
+
+We are restocking Ender's Game  with 0 copies
+Sorry, 0 is an invalid input for restocking
+Here is the updated info for Ender's Game 
+Book ID: 2
+Title: Ender's Game 
+Author: Orson Scott Card
+Year Published: 1985
+Price: $10.10
+Number in stock: 1
+Number sold: 4
+
+We are restocking Ender's Game  with 1 copy
+Book ID: 2
+Title: Ender's Game 
+Author: Orson Scott Card
+Year Published: 1985
+Price: $10.10
+Number in stock: 2
+Number sold: 4
+--------------
+Tony Stark would like to buy 2 copies of I Robot
+Here is the updated info on the customer's account and the book
+Customer Name: Tony Stark
+Account ID: 101010
+Address: 10880 Malibu Point
+Number of Books Purchased: 6
+Books Purchased: Ender's Game , Ender's Game , Ender's Game , Ender's Game , I Robot, 
+I Robot
+
+Book ID: 1
+Title: I Robot
+Author: Isaac Asimov
+Year Published: 1950
+Price: $12.00
+Number in stock: 8
+Number sold: 3
+--------------
+Obi-Wan Kenobi would like to update his password
+Obi-Wan Kenobi would like to update his address
+Here is the updated info on the customer's account
+Password: UPRocks!
+Address: 100 UP Way
