@@ -68,7 +68,7 @@ public class Book {
 		//If Successful...
 		numCopies -= copies;
 		numSold += copies;
-		customer.addBook(this);
+		customer.addBook(this, copies);
 	}
 
 	public void restock(int increase) {

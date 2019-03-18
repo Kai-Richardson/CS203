@@ -11,7 +11,7 @@ public class Customer {
 	private int card_num;
 	private String password; //Plaintext password storage? How terrible.
 
-	private Book[] boughtBooks = Book[500];
+	private Book[] boughtBooks = new Book[500];
 	private int boughtBooksNum = 0;
 
 
@@ -45,6 +45,14 @@ public class Customer {
 
 	public String getPassword() {
 		return password;
+	}
+
+	public String getBoughtBooks() {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < boughtBooksNum; i++) {
+			sb.append(boughtBooks[i].toString());
+		}
+		return sb.toString();
 	}
 
 	public String toString() {
