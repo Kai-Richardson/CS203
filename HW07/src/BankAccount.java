@@ -69,10 +69,6 @@ public class BankAccount {
 	 * @return true if the two BankAccounts are equal and
 	 * false, otherwise
 	 */
-// example of writing an equals method - it is a good
-// idea to write an equals method for each class you
-// create
-
 // this.name refers to the instance variable name for
 // the current object to which this method is applied
 	public boolean equals(BankAccount account) {
