@@ -1,18 +1,28 @@
-public class Book {
+/**
+ * An instance of this class contains all the information about a single book
+ *
+ * @author - Kai Richardson
+ * @version 1
+ */
+class Book {
 
-	private int id;
-	private String title;
-	private String author;
-	private String publisher;
-	private int yearPub;
+	//Declare variables used to store data about our book
+	private final int id;
+	private final String title;
+	private final String author;
+	private final String publisher;
+	private final int yearPub;
 
-	private int price;
+	private final int price;
 
 	private int numCopies;
 	private int numSold;
 
-	public Book(int id, String title, String author, String publisher,
-	            int yearPub, int price, int numCopies, int numSold) {
+	/**
+	 * Book Constructor, sets the specific instance's values to the passed ones.
+	 */
+	Book(int id, String title, String author, String publisher,
+	     int yearPub, int price, int numCopies) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
@@ -20,43 +30,89 @@ public class Book {
 		this.yearPub = yearPub;
 		this.price = price;
 		this.numCopies = numCopies;
-		this.numSold = numSold;
+		this.numSold = 0;
 
 	}
 
-	public int getID() {
+	/**
+	 * Returns the ID of the book
+	 *
+	 * @return id
+	 */
+	int getID() {
 		return id;
 	}
 
-	public String getTitle() {
+	/**
+	 * Returns the title of the book
+	 *
+	 * @return title
+	 */
+	String getTitle() {
 		return title;
 	}
 
-	public String getAuthor() {
+	/**
+	 * Returns the author of the book
+	 *
+	 * @return author
+	 */
+	String getAuthor() {
 		return author;
 	}
 
-	public String getPublisher() {
+	/**
+	 * Returns the publisher of the book
+	 *
+	 * @return publisher
+	 */
+	String getPublisher() {
 		return publisher;
 	}
 
-	public int getYearPub() {
+	/**
+	 * Returns the year published of the book
+	 *
+	 * @return year published
+	 */
+	int getYearPub() {
 		return yearPub;
 	}
 
-	public int getPrice() {
+	/**
+	 * Returns the price of the book
+	 *
+	 * @return price
+	 */
+	int getPrice() {
 		return price;
 	}
 
-	public int getNumCopies() {
-		return numCopies;
+	/**
+	 * Returns the number of copies in stock of the book
+	 *
+	 * @return number in stock
+	 */
+	int getNumCopies() {
+		return this.numCopies;
 	}
 
-	public int getNumSold() {
+	/**
+	 * Returns the number of copies of the book we've sold
+	 *
+	 * @return number sold
+	 */
+	int getNumSold() {
 		return numSold;
 	}
 
-	public void sale(Customer customer, int copies) {
+	/**
+	 * Method to handle the sale of a book given a customer and number to sell
+	 *
+	 * @param customer our customer to sell to
+	 * @param copies   how many copies we're selling them
+	 */
+	void sale(Customer customer, int copies) {
 		if (copies > numCopies) {
 			System.out.println("Error: Attempted to sell more copies than available.");
 			return;
@@ -71,7 +127,12 @@ public class Book {
 		customer.addBook(this, copies);
 	}
 
-	public void restock(int increase) {
+	/**
+	 * Method to restock books and increase the number we have in stock
+	 *
+	 * @param increase how many books to add
+	 */
+	void restock(int increase) {
 		if (increase < 1) {
 			System.out.println("Error: Attempted to increase by < 1.");
 			return;
@@ -82,6 +143,11 @@ public class Book {
 		}
 	}
 
+	/**
+	 * Method to print the data of the Book in a string format
+	 *
+	 * @return a description of our Book
+	 */
 	public String toString() {
 		return "Book [" +
 				" ID = " + id + "," +
