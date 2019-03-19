@@ -2,7 +2,7 @@
  * An instance of this class contains all the information about a single customer
  *
  * @author - Kai Richardson
- * @version 1
+ * @version 2019-03-18
  */
 class Customer {
 

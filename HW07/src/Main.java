@@ -1,3 +1,9 @@
+/**
+ * This Main function is used to test the Book and Customer classes.
+ *
+ * @author - Kai Richardson
+ * @version 2019-03-18
+ */
 class Main {
 
 	public static void main(String[] args) {
