@@ -22,7 +22,7 @@ public class SnapShopConfiguration {
 
         theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
 
-        theShop.addFilter(new DemosiacFilter(), "De-mosiac");
+        theShop.addFilter(new DemosaicFilter(), "De-mosaic");
         // add other filters you write here:
         // the arguments to addFilter are a Filter object, followed by the 
         // text you want shown on the button

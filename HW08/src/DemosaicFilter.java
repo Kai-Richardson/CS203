@@ -1,24 +1,23 @@
 /**
- * DemosiacFilter
+ * De-mosaicFilter
  * A filter to de-mosiac
  *
  * @author Kai Richardson
  * @version  4.1.2019
  *
  */
-public class DemosiacFilter implements Filter {
+public class DemosaicFilter implements Filter {
 
     // static variables for digital camera filter -
-    // specifies which color was recorded by digital
-    // camera
-    public static final int ALL = 0;
-    public static final int RED = 1;
-    public static final int GREEN = 2;
-    public static final int BLUE = 3;
+    private static final int RED = 1;
+    private static final int GREEN = 2;
+    private static final int BLUE = 3;
+
+    private static final double ADJUSTMENT = 1.28; // in order to more accurately reproduce whites
 
     /**
      * filter
-     * demosaics the image
+     * de-mosaics the image
      * @param pi The PixelImage object to modify
      */
     public void filter(PixelImage pi) {
@@ -54,7 +53,7 @@ public class DemosiacFilter implements Filter {
 	                    ourGreen += tryGetColor(Left, GREEN);
 	                    ourGreen += tryGetColor(Right, GREEN);
 	                    ourGreen /= 4;
-	                    ourGreen /= 1.2;
+	                    ourGreen /= ADJUSTMENT;
 
 	                    ourBlue += tryGetColor(TopLeft, BLUE);
 	                    ourBlue += tryGetColor(BottomLeft, BLUE);
@@ -65,7 +64,7 @@ public class DemosiacFilter implements Filter {
 
                     case GREEN:
                         ourGreen = tryGetColor(Center, GREEN);
-                        ourGreen /= 1.05;
+                        //ourGreen /= 1.05;
 
                         ourRed += tryGetColor(Top, RED);
                         ourRed += tryGetColor(Bottom, RED);
@@ -84,7 +83,7 @@ public class DemosiacFilter implements Filter {
                         ourGreen += tryGetColor(Left, GREEN);
                         ourGreen += tryGetColor(Right, GREEN);
                         ourGreen /= 4;
-	                    ourGreen /= 1.2;
+	                    ourGreen /= ADJUSTMENT;
 
                         ourRed += tryGetColor(TopLeft, RED);
                         ourRed += tryGetColor(BottomLeft, RED);

@@ -2,7 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3a8f10f-7875-450c-a88c-5251595a35b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/.idea/HW08-old.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HW08/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HW08/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/CS203_HW8_DigCam.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/CS203_HW8_DigCam.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/DemosiacFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/DigitalCameraFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/Filter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/FlipHorizontalFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/FlipVerticalFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/Images/Steve-Ballmer-Developers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/Images/dawwbees.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/Images/pointers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/Images/sakura_grass.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/Images/testgradient.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/Pixel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/PixelImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/SnapShop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/SnapShopConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/bluej.pkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/bluej.pkh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/DigitalCameraFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/Filter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/FlipVerticalFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/Pixel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/PixelImage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/SnapShop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/SnapShopConfiguration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/allclasses-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/allclasses-noframe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/constant-values.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/help-doc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/index-all.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/logfile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/overview-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/package-list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/resources/inherit.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/serialized-form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/doc/stylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW08/src/package.bluej" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+              <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -110,6 +155,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -126,7 +172,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -182,6 +227,7 @@
       <workItem from="1552967744433" duration="525000" />
       <workItem from="1554164846500" duration="32000" />
       <workItem from="1554165208299" duration="44000" />
+      <workItem from="1554224612712" duration="17000" />
     </task>
     <task id="LOCAL-00001" summary="init HW07">
       <created>1552323677128</created>
@@ -232,12 +278,12 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="13471000" />
+    <option name="totallyTimeSpent" value="13488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1249" height="1047" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26997477" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27418" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -376,7 +422,7 @@
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
         </state>
       </provider>
     </entry>

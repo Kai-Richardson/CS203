@@ -1,15 +1,14 @@
 /**
- * Filter Interface - 
+ * Filter Interface -
  * Specifies a filter method to modify images
- * 
+ *
  * @author Tammy VanDeGrift
  * @version Oct. 31, 2007
- * 
+ *
  * !!! DO NOT MODIFY THIS INTERFACE !!!
  */
-
-/** interface filter. All filters should implement this interface */
 public interface Filter {
+  /* interface filter. All filters should implement this interface */
   /**
    * Modify the image according to your algorithm
    * 
