@@ -96,6 +96,7 @@ public class SnapShop extends JFrame {
                 if (resultOfShow == JFileChooser.APPROVE_OPTION) {
                     String fileName = chooser.getSelectedFile().getAbsolutePath();
                     ip.loadImage(fileName);
+                    setDefaultDirectory(chooser.getSelectedFile().getAbsolutePath());
                 } 
                 else {
                     // user must have canceled

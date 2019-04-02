@@ -110,7 +110,7 @@ public class DemosaicFilter implements Filter {
 			result = arr[row][col];
 		}
 		catch(ArrayIndexOutOfBoundsException exception) {
-			result = null;
+			result = null; //we're at an image border, so let's set it to null so we detect later
 		}
 
 		return result;
@@ -119,7 +119,7 @@ public class DemosaicFilter implements Filter {
 		int result;
 
 		if (px == null) {
-			return result = 255; //edge, let's set at top brightness
+			return result = 128; //border, let's set at middle brightness
 		}
 
 		return px.getComponentById(color);
