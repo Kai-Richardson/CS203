@@ -9,8 +9,7 @@ public class ShiftRightFilter implements Filter {
 
 	/**
 	 * filter
-	 * flips pixel image vertically around horizontal
-	 * center line
+	 * shifts the image to the right by 1px
 	 *
 	 * @param pi The PixelImage object to modify
 	 */
@@ -18,12 +17,21 @@ public class ShiftRightFilter implements Filter {
 		Pixel[][] data = pi.getData();  // get image data
 
 		for (int row = 0; row < pi.getHeight(); row++) {
-			for (int col = 0; col < pi.getWidth() / 2; col++) {
-				// swap values across center line
-				Pixel temp = data[row][col];
-				data[row][col] = data[row][pi.getWidth() - col - 1];
-				data[row][pi.getWidth() - col - 1] = temp;
+
+			Pixel[] newCreatedRow = new Pixel[pi.getWidth()];
+
+			for (int col = 0; col < pi.getWidth(); col++) {
+
+				Pixel ourPixel = data[row][col];
+
+				if (col == pi.getWidth() - 1) {
+					newCreatedRow[0] = ourPixel;
+				} else {
+					newCreatedRow[col + 1] = ourPixel;
+				}
 			}
+
+			data[row] = newCreatedRow;
 		}
 		// reset data into the PixelImage object pi
 		pi.setData(data);

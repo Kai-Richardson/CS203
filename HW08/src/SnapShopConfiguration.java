@@ -14,7 +14,7 @@ public class SnapShopConfiguration {
      * and setDefaultFilename in this method.
      * @param theShop   The SnapShop application
      */
-    public static void configure(SnapShop theShop) {
+    static void configure(SnapShop theShop) {
         // set default directory
         theShop.setDefaultDirectory("./Images/");
      
@@ -25,6 +25,8 @@ public class SnapShopConfiguration {
         theShop.addFilter(new DemosaicFilter(), "De-mosaic");
 
         theShop.addFilter(new DarkenFilter(), "Darken");
+
+        theShop.addFilter(new ShiftRightFilter(), "Shift Right");
         // add other filters you write here:
         // the arguments to addFilter are a Filter object, followed by the 
         // text you want shown on the button
@@ -34,7 +36,7 @@ public class SnapShopConfiguration {
      * main
      * creates a new SnapShop object
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
       SnapShop theShop = new SnapShop();
     }  
 }
