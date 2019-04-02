@@ -13,6 +13,7 @@ public class ShiftRightFilter implements Filter {
 	 *
 	 * @param pi The PixelImage object to modify
 	 */
+	@Override
 	public void filter(PixelImage pi) {
 		Pixel[][] data = pi.getData();  // get image data
 

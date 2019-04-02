@@ -10,6 +10,7 @@ public class DarkenFilter implements Filter {
 
 	private final static int DARK_AMT = 15;
 
+	@Override
 	public void filter(PixelImage pi) {
 
 		DemosaicFilter df = new DemosaicFilter();

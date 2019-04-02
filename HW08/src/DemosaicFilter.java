@@ -6,7 +6,7 @@
  * @version  4.1.2019
  *
  */
-public class DemosaicFilter implements Filter {
+public class DemosaicFilter extends PixelGridFramework implements Filter {
 
     // static variables for digital camera filter -
     private static final int RED = 1;
@@ -20,6 +20,7 @@ public class DemosaicFilter implements Filter {
      * de-mosaics the image
      * @param pi The PixelImage object to modify
      */
+    @Override
     public void filter(PixelImage pi) {
         Pixel[][] data = pi.getData();  // get image data
 
@@ -30,17 +31,7 @@ public class DemosaicFilter implements Filter {
 	            int ourRed = 0;
 	            int ourGreen = 0;
 
-	            Pixel TopLeft = trySetPixel(row-1, col-1, data);
-	            Pixel Top = trySetPixel(row-1, col, data);
-	            Pixel TopRight = trySetPixel(row-1, col+1, data);
-
-	            Pixel Left = trySetPixel(row, col-1, data);
-	            Pixel Center = trySetPixel(row, col, data);
-	            Pixel Right = trySetPixel(row, col+1, data);
-
-	            Pixel BottomLeft = trySetPixel(row+1, col-1, data);
-	            Pixel Bottom = trySetPixel(row+1, col, data);
-	            Pixel BottomRight = trySetPixel(row+1, col+1, data);
+	            setupLocalPixelGrid(data, row, col);
 
                 int colorNoModify = Center.getDigCamColor();
 
@@ -103,26 +94,6 @@ public class DemosaicFilter implements Filter {
 		pi.setData(data);
 	}
 
-	private Pixel trySetPixel(int row, int col, Pixel[][] arr) {
-    	Pixel result;
 
-		try {
-			result = arr[row][col];
-		}
-		catch(ArrayIndexOutOfBoundsException exception) {
-			result = null; //we're at an image border, so let's set it to null so we detect later
-		}
-
-		return result;
-	}
-	private int tryGetColor(Pixel px, int color) {
-		int result;
-
-		if (px == null) {
-			return result = 128; //border, let's set at middle brightness
-		}
-
-		return px.getComponentById(color);
-	}
 
 }

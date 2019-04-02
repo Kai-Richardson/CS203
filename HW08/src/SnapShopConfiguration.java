@@ -26,10 +26,10 @@ public class SnapShopConfiguration {
 
         theShop.addFilter(new DarkenFilter(), "Darken");
 
+        theShop.addFilter(new EdgeFilter(), "Detect Edges");
+
         theShop.addFilter(new ShiftRightFilter(), "Shift Right");
-        // add other filters you write here:
-        // the arguments to addFilter are a Filter object, followed by the 
-        // text you want shown on the button
+
     }
     
     /** 
