@@ -2,8 +2,8 @@
  * SnapShopConfiguration
  * A class to configure the SnapShop application
  * 
- * @author !!! PUT YOUR NAME HERE !!! 
- * @version  !!! PUT DATE HERE !!!
+ * @author Kai Richardson
+ * @version  4.1.2019
  * 
  */
 public class SnapShopConfiguration {
@@ -19,6 +19,10 @@ public class SnapShopConfiguration {
         theShop.setDefaultDirectory("./Images/");
      
         theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
+
+        theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");
+
+        theShop.addFilter(new DemosiacFilter(), "De-mosiac");
         // add other filters you write here:
         // the arguments to addFilter are a Filter object, followed by the 
         // text you want shown on the button
