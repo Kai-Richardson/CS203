@@ -1,5 +1,11 @@
 import static java.lang.Integer.max;
 
+/**
+ * Filter that darkens the image by a noticeable amount
+ *
+ * @author Kai Richardson
+ * @version 4.2.2019
+ */
 public class DarkenFilter implements Filter {
 
 	private final static int DARK_AMT = 15;
