@@ -57,7 +57,6 @@ public class DemosaicFilter extends PixelGridFramework implements Filter {
 
                     case GREEN:
                         ourGreen = tryGetColor(Center, GREEN);
-                        //ourGreen /= 1.05;
 
                         ourRed += tryGetColor(Top, RED);
                         ourRed += tryGetColor(Bottom, RED);
@@ -96,7 +95,4 @@ public class DemosaicFilter extends PixelGridFramework implements Filter {
 		// reset data into the PixelImage object pi
 		pi.setData(data);
 	}
-
-
-
 }

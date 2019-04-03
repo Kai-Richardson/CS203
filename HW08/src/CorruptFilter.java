@@ -2,6 +2,8 @@ import java.util.Random;
 
 /**
  * Filter that corrupts the image, biased towards the bottom left
+ * Deosn't de-bayer the image, to allow for fun color blends.
+ * Output will constantly change.
  *
  * @author Kai Richardson
  * @version 4.3.2019
