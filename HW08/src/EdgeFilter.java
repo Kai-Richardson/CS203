@@ -2,12 +2,14 @@
  * EdgeFilter
  * A class to detect edges
  *
+ * Also implemented half-tone coloring
+ *
  * @author Kai Richardson
- * @version 4.2.2019
+ * @version 4.3.2019
  */
 public class EdgeFilter extends PixelGridFramework implements Filter {
 
-	private final static int JND = 4; //Just Noticeable Difference
+	private final static int JND = 17; //Just Noticeable Difference
 
 	@Override
 	public void filter(PixelImage pi) {
@@ -64,8 +66,7 @@ public class EdgeFilter extends PixelGridFramework implements Filter {
 	}
 
 	private boolean isEdge(int baseBrightness, Pixel px) {
-		return tryGetBrightness(px) > baseBrightness - JND ||
-				tryGetBrightness(px) > baseBrightness + JND;
+		return tryGetBrightness(px) - baseBrightness > JND || baseBrightness - tryGetBrightness(px) > JND;
 	}
 
 
