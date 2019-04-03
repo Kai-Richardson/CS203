@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53a1db83-91c0-4429-b7e0-5e1d319e6de2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/EdgeFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PixelGridFramework.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DarkenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DarkenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DemosaicFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DemosaicFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FlipHorizontalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FlipHorizontalFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShiftRightFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShiftRightFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnapShopConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapShopConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EdgeFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EdgeFilter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EdgeFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="271">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
         </entry>
@@ -58,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PixelGridFramework.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="48" column="23" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+            <state relative-caret-position="73">
+              <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -133,7 +127,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
+    <option name="x" value="615" />
     <option name="width" value="1127" />
     <option name="height" value="1047" />
   </component>
@@ -206,7 +200,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1554224626704</updated>
-      <workItem from="1554224630731" duration="8270000" />
+      <workItem from="1554224630731" duration="9151000" />
     </task>
     <task id="LOCAL-00001" summary="documentation">
       <created>1554226954810</created>
@@ -222,14 +216,22 @@
       <option name="project" value="LOCAL" />
       <updated>1554234171376</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="edge filter and pixel grid framework">
+      <created>1554248853303</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1554248853303</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8270000" />
+    <option name="totallyTimeSpent" value="9151000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1127" height="1047" extended-state="0" />
+    <frame x="615" y="0" width="1127" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="UI Designer" />
@@ -292,7 +294,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="documentation" />
     <MESSAGE value="shift right filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="shift right filter" />
+    <MESSAGE value="edge filter and pixel grid framework" />
+    <option name="LAST_COMMIT_MESSAGE" value="edge filter and pixel grid framework" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -391,6 +394,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PixelGridFramework.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ShiftRightFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-63">
@@ -398,17 +408,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PixelGridFramework.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="48" column="23" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EdgeFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="271">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>

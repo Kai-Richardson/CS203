@@ -29,17 +29,16 @@ public class EdgeFilter extends PixelGridFramework implements Filter {
 
 				boolean weAreEdge = false;
 
-				if (
-						isEdge(ourBrightness, TopLeft) ||
-								isEdge(ourBrightness, Top) ||
-								isEdge(ourBrightness, TopRight) ||
+				if (isEdge(ourBrightness, TopLeft) ||
+						isEdge(ourBrightness, Top) ||
+						isEdge(ourBrightness, TopRight) ||
 
-								isEdge(ourBrightness, Left) ||
-								isEdge(ourBrightness, Right) ||
+						isEdge(ourBrightness, Left) ||
+						isEdge(ourBrightness, Right) ||
 
-								isEdge(ourBrightness, BottomLeft) ||
-								isEdge(ourBrightness, Bottom) ||
-								isEdge(ourBrightness, BottomRight)) {
+						isEdge(ourBrightness, BottomLeft) ||
+						isEdge(ourBrightness, Bottom) ||
+						isEdge(ourBrightness, BottomRight)) {
 					weAreEdge = true;
 				}
 				edgeHolder[row][col] = weAreEdge;
