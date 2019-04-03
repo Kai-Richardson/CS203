@@ -28,6 +28,8 @@ public class SnapShopConfiguration {
 
         theShop.addFilter(new EdgeFilter(), "Detect Edges");
 
+        theShop.addFilter(new CorruptFilter(), "Corrupt");
+
         theShop.addFilter(new ShiftRightFilter(), "Shift Right");
 
     }

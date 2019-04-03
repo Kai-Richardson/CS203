@@ -31,12 +31,20 @@ class PixelGridFramework {
 		return result;
 	}
 
+	//Attempts to assign one pixel's values to another given pixel
+	public void trySetPixel(Pixel toMove, Pixel toReplace) {
+		try {
+			toReplace.setAllColors(toMove.getRed(), toMove.getGreen(), toMove.getBlue());
+		} catch (Exception ignored) {
+		}
+	}
+
+
 	//Attempts to get the color of a given pixel
 	int tryGetColor(Pixel px, int color) {
-		int result;
 
 		if (px == null) {
-			return result = 128; //border, let's set at middle brightness
+			return 128; //border, let's set at middle brightness
 		}
 
 		return px.getComponentById(color);

@@ -1,7 +1,7 @@
 /**
  * EdgeFilter
  * A class to detect edges
- *
+ * <p>
  * Also implemented half-tone coloring
  *
  * @author Kai Richardson
@@ -28,9 +28,9 @@ public class EdgeFilter extends PixelGridFramework implements Filter {
 				setupLocalPixelGrid(data, row, col);
 
 				int ourBrightness = tryGetBrightness(Center);
-
 				boolean weAreEdge = false;
 
+				//Detect if we're an edge to our neighboring pixels
 				if (isEdge(ourBrightness, TopLeft) ||
 						isEdge(ourBrightness, Top) ||
 						isEdge(ourBrightness, TopRight) ||
@@ -43,10 +43,12 @@ public class EdgeFilter extends PixelGridFramework implements Filter {
 						isEdge(ourBrightness, BottomRight)) {
 					weAreEdge = true;
 				}
+				//If so, let our boolean array know we are for later
 				edgeHolder[row][col] = weAreEdge;
 			}
 		}
 
+		//Loop over boolean array and convert edge pixels to black
 		for (int row2 = 0; row2 < (pi.getHeight()); row2++) {
 			for (int col2 = 0; col2 < (pi.getWidth()); col2++) {
 
@@ -59,15 +61,13 @@ public class EdgeFilter extends PixelGridFramework implements Filter {
 			}
 		}
 
-
 		// reset data into the PixelImage object pi
 		pi.setData(data);
 
 	}
 
+	//Detect if we're over JND pixels in distance
 	private boolean isEdge(int baseBrightness, Pixel px) {
 		return tryGetBrightness(px) - baseBrightness > JND || baseBrightness - tryGetBrightness(px) > JND;
 	}
-
-
 }
