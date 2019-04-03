@@ -21,6 +21,7 @@ public class CorruptFilter extends PixelGridFramework implements Filter {
 				setupLocalPixelGrid(data, row, col);
 				Random r = new Random();
 
+				//only corrupt given a 40% chance
 				int shouldWeCorrupt = r.nextInt(5);
 				if (shouldWeCorrupt < 3) {
 					continue;
@@ -28,6 +29,7 @@ public class CorruptFilter extends PixelGridFramework implements Filter {
 
 				int rand = r.nextInt(4);
 
+				//do random changes
 				switch (rand) {
 					case 1:
 						trySetPixel(Center, Top);
@@ -42,7 +44,6 @@ public class CorruptFilter extends PixelGridFramework implements Filter {
 						trySetPixel(Center, BottomRight);
 				}
 			}
-
 		}
 		// reset data into the PixelImage object pi
 		pi.setData(data);

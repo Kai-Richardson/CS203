@@ -3,7 +3,7 @@
  * A class to configure the SnapShop application
  * 
  * @author Kai Richardson
- * @version  4.1.2019
+ * @version 4.3.2019
  * 
  */
 public class SnapShopConfiguration {
@@ -17,7 +17,8 @@ public class SnapShopConfiguration {
     static void configure(SnapShop theShop) {
         // set default directory
         theShop.setDefaultDirectory("./Images/");
-     
+
+        //add filters
         theShop.addFilter(new FlipVerticalFilter(), "Flip Vertical");
 
         theShop.addFilter(new FlipHorizontalFilter(), "Flip Horizontal");

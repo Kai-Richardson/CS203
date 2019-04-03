@@ -33,8 +33,10 @@ public class DemosaicFilter extends PixelGridFramework implements Filter {
 
 	            setupLocalPixelGrid(data, row, col);
 
+	            //what's our source color
                 int colorNoModify = Center.getDigCamColor();
 
+	            //depending on our source color, search in different patterns for neighbors we want
                 switch (colorNoModify){
                     case RED:
                         ourRed = tryGetColor(Center, RED);
@@ -84,6 +86,7 @@ public class DemosaicFilter extends PixelGridFramework implements Filter {
                         break;
                 }
 
+	            //set our center full color to colors we found
 				Center.setRed(ourRed);
 				Center.setGreen(ourGreen);
 				Center.setBlue(ourBlue);

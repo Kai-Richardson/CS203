@@ -32,13 +32,12 @@ class PixelGridFramework {
 	}
 
 	//Attempts to assign one pixel's values to another given pixel
-	public void trySetPixel(Pixel toMove, Pixel toReplace) {
+	void trySetPixel(Pixel toMove, Pixel toReplace) {
 		try {
 			toReplace.setAllColors(toMove.getRed(), toMove.getGreen(), toMove.getBlue());
 		} catch (Exception ignored) {
 		}
 	}
-
 
 	//Attempts to get the color of a given pixel
 	int tryGetColor(Pixel px, int color) {
@@ -66,6 +65,7 @@ class PixelGridFramework {
 		return result;
 	}
 
+	//sets up a local pixel grid given an array and a row/col
 	void setupLocalPixelGrid(Pixel[][] data, int row, int col) {
 		TopLeft = tryGetPixel(row - 1, col - 1, data);
 		Top = tryGetPixel(row - 1, col, data);
