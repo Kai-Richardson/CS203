@@ -30,7 +30,7 @@ public class DarkenFilter implements Filter {
 				int newGreen = max(0, ourPixel.getGreen() - DARK_AMT);
 				int newBlue = max(0, ourPixel.getBlue() - DARK_AMT);
 
-				ourPixel.setAllColors(newRed,newGreen,newBlue);
+				ourPixel.setAllColors(newRed, newGreen, newBlue);
 			}
 
 		}
