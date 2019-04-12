@@ -16,7 +16,7 @@ public class Main {
 		Burrito br = new Burrito("Chicken");
 
 		Sub sb = new Sub("Hoagie");
-		Burger bg = new Burger("McDonalds", "Beef");
+		BigMac bg = new BigMac("Beef");
 
 		println("Created our foods. Testing time!");
 
@@ -34,6 +34,17 @@ public class Main {
 		println(tc.toString());
 
 		println("");
+		cl.addComposingElement("Melted Cheese");
+		println(cl.toString());
+
+		println("");
+		br.addComposingElement("Beans");
+		br.addComposingElement("Shredded Cheese");
+		br.addCondimentApplicable("BBQ Sauce");
+		br.tryAddCondiment("BBQ Sauce");
+		println(br.toString());
+
+		println("");
 		sb.addComposingElement("Meatballs");
 		sb.addComposingElement("Tomato Sauce");
 		sb.addComposingElement("Provolone");
@@ -44,8 +55,7 @@ public class Main {
 
 		println("");
 		bg.addComposingElement("Lettuce");
-		bg.tryAddCondiment("Ketchup");
-		bg.tryAddCondiment("Relish");
+		bg.tryAddCondiment("Relish"); //Won't work
 		println(bg.toString());
 
 	}

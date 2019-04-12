@@ -25,7 +25,7 @@ public class Burger extends Sandwico {
 		this.chainOfOrigin = chainOfOrigin;
 	}
 
-	private void addCommonCondiments() {
+	void addCommonCondiments() {
 		addCondimentApplicable("Mustard");
 		addCondimentApplicable("Ketchup");
 		addCondimentApplicable("Onions");
