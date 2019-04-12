@@ -8,20 +8,20 @@ import java.util.ArrayList;
  */
 public abstract class FoodObject {
 
-	private String nameDisplay = "Food Item";
-	private String nameScientific = "Latin Latin";
+	private String nameDisplay;
+	private String nameScientific;
 
 	private String countryOfOrigin = "";
-	private ArrayList<String> ComposingElements = new ArrayList<String>();
-	private ArrayList<String> condimentsApplied = new ArrayList<String>();
-	private ArrayList<String> condimentsApplicable = new ArrayList<String>();
+	private ArrayList<String> ComposingElements = new ArrayList<>();
+	private ArrayList<String> condimentsApplied = new ArrayList<>();
+	private ArrayList<String> condimentsApplicable = new ArrayList<>();
 
 	FoodObject(String nameDisplay, String nameScientific) {
 		this.nameDisplay = nameDisplay;
 		this.nameScientific = nameScientific;
 	}
 
-	public String getCountryOfOrigin() {
+	private String getCountryOfOrigin() {
 		return countryOfOrigin;
 	}
 
@@ -29,15 +29,15 @@ public abstract class FoodObject {
 		this.countryOfOrigin = countryOfOrigin;
 	}
 
-	public String getNameDisplay() {
+	private String getNameDisplay() {
 		return nameDisplay;
 	}
 
-	public String getNameScientific() {
+	private String getNameScientific() {
 		return nameScientific;
 	}
 
-	public ArrayList<String> getComposingElements() {
+	private ArrayList<String> getComposingElements() {
 		return ComposingElements;
 	}
 
@@ -45,11 +45,11 @@ public abstract class FoodObject {
 		ComposingElements.add(newElement);
 	}
 
-	public ArrayList<String> getCondimentsApplied() {
+	private ArrayList<String> getCondimentsApplied() {
 		return condimentsApplied;
 	}
 
-	public void tryAddCondiment(String condiment) {
+	void tryAddCondiment(String condiment) {
 		if (this.getCondimentsApplicable().contains(condiment)) {
 			this.condimentsApplied.add(condiment);
 		}
@@ -65,10 +65,11 @@ public abstract class FoodObject {
 
 	@Override
 	public String toString() {
-		return "Name: " + nameDisplay + ", " +
-				"Scientific Name: " + nameScientific + ", " +
-				"Ingredients: " + ComposingElements + ", " +
-				"Condiments: " + condimentsApplied;
+		return "Name: " + getNameDisplay() + ", " +
+				"Scientific Name: " + getNameScientific() + ", " +
+				"Country of Origin: " + getCountryOfOrigin() + ", " +
+				"Ingredients: " + getComposingElements() + ", " +
+				"Condiments: " + getCondimentsApplied();
 	}
 }
 

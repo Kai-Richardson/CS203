@@ -1,11 +1,14 @@
 /**
  * Hotdog-Like structures
  */
-public class HotDog extends Pastillum {
+class HotDog extends Pastillum {
 
 
-	public HotDog(String meatFilling) {
+	HotDog(String meatFilling) {
 		super("Hot Dog", "Pastillum Brautcana", meatFilling);
+		setBreadType("Split Roll");
+		setCountryOfOrigin("United States");
+		addComposingElement(getBreadType() + " x" + getNumberOfBreadSlices());
 		addCommonCondiments();
 	}
 

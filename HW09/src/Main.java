@@ -16,18 +16,37 @@ public class Main {
 		Burrito br = new Burrito("Chicken");
 
 		Sub sb = new Sub("Hoagie");
-		Burger bg = new Burger("McDonalds");
+		Burger bg = new Burger("McDonalds", "Beef");
 
 		println("Created our foods. Testing time!");
 
+		println("");
+		hd.tryAddCondiment("Ketchup");
+		hd.tryAddCondiment("Relish");
+		hd.tryAddCondiment("Franz Hall"); //Won't add.
+		println(hd.toString());
+
+		println("");
+		tc.addComposingElement("Shredded Lettuce");
+		tc.addComposingElement("Grated Queso");
+		tc.addCondimentApplicable("Hot Sauce");
+		tc.tryAddCondiment("Hot Sauce");
+		println(tc.toString());
+
+		println("");
 		sb.addComposingElement("Meatballs");
 		sb.addComposingElement("Tomato Sauce");
 		sb.addComposingElement("Provolone");
 		sb.addCondimentApplicable("Parmesean");
 		sb.tryAddCondiment("Parmesean");
-		sb.tryAddCondiment("Swimming Pools");
+		sb.tryAddCondiment("Swimming Pools"); //Won't add
 		println(sb.toString());
-		println("Local Word for our Sub: " + sb.getLocalWord());
+
+		println("");
+		bg.addComposingElement("Lettuce");
+		bg.tryAddCondiment("Ketchup");
+		bg.tryAddCondiment("Relish");
+		println(bg.toString());
 
 	}
 

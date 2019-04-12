@@ -14,11 +14,19 @@ class Sub extends Sandwico {
 		addComposingElement(getBreadType() + " x" + getNumberOfBreadSlices());
 	}
 
-	String getLocalWord() {
+	private String getLocalWord() {
 		return localWord;
 	}
 
 	private void setLocalWord(String localWord) {
 		this.localWord = localWord;
+	}
+
+	@Override
+	public String toString() {
+		String superValue = super.toString();
+		String addString = ", Also known as a: " + getLocalWord();
+
+		return superValue + addString;
 	}
 }

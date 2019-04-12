@@ -3,21 +3,21 @@
  */
 public class Burger extends Sandwico {
 
-	private String pattyMeat = "Beef";
+	private String pattyMeat;
 	private String chainOfOrigin = "";
 
-	Burger(String chainOfOrigin) {
+	Burger(String chainOfOrigin, String pattyMeat) {
 		super("Burger", "Sandwico Hamburgenese");
 		addCommonCondiments();
 		setBreadType("Bun");
+		setPattyMeat(pattyMeat);
 		setCountryOfOrigin("United States");
 		setChainOfOrigin(chainOfOrigin);
 		addComposingElement(getBreadType() + " x" + getNumberOfBreadSlices());
 		addComposingElement("Patty - " + getPattyMeat());
-		addComposingElement("Lettuce");
 	}
 
-	public String getChainOfOrigin() {
+	private String getChainOfOrigin() {
 		return chainOfOrigin;
 	}
 
@@ -36,7 +36,15 @@ public class Burger extends Sandwico {
 		return pattyMeat;
 	}
 
-	public void setPattyMeat(String pattyMeat) {
+	private void setPattyMeat(String pattyMeat) {
 		this.pattyMeat = pattyMeat;
+	}
+
+	@Override
+	public String toString() {
+		String superValue = super.toString();
+		String addString = ", Chain of Origin: " + getChainOfOrigin();
+
+		return superValue + addString;
 	}
 }

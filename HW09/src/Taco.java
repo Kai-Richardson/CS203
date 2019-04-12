@@ -1,6 +1,9 @@
-public class Taco extends Pastillum {
+class Taco extends Pastillum {
 
-	public Taco(String meatFilling) {
+	Taco(String meatFilling) {
 		super("Taco", "Pastillum Tacoa", meatFilling);
+		setBreadType("Tortilla");
+		setCountryOfOrigin("Mexico");
+		addComposingElement(getBreadType() + " x" + getNumberOfBreadSlices());
 	}
 }

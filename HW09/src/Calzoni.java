@@ -3,7 +3,7 @@
  */
 abstract class Calzoni extends BreadLike {
 
-	private String meatFilling = "";
+	private String meatFilling;
 
 	Calzoni(String nameDisplay, String nameScientific, String filling) {
 		super(nameDisplay, nameScientific);
@@ -18,5 +18,13 @@ abstract class Calzoni extends BreadLike {
 
 	public void setMeatFilling(String meatFilling) {
 		this.meatFilling = meatFilling;
+	}
+
+	@Override
+	public String toString() {
+		String superValue = super.toString();
+		String addString = ", Meat Filling: " + getMeatFilling();
+
+		return superValue + addString;
 	}
 }
