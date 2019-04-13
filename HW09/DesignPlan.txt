@@ -1,0 +1,21 @@
+AUTHOR: Kai Richardson
+DATE: April 12th, 2019
+
+OUTLINE FOR HOMEWORK 09 - INHERITANCE
+
+I intend to create a hierarchial tree of the different types of bread-like food items.
+This includes: Sandwiches, Calzones, Burgers, Tacos, Burritos, and Hot Dogs.
+I will create a Main test class to initalize these food Objects and preform operations on them.
+Examples of testing: Adding condiments, denoting the type of filling, and changing the acceptable condiments.
+
+Some of the information that will be stored for each food Object:
+* Country of Origin
+* Display Name
+* Scientific Name
+* Applicable Condiments
+
+Some of the information that will be stored for each bread-like Object:
+* Number of bread slices
+* Type of bread
+
+Each non-abstract type will have its own unique values as well, such as Sub Sandwiches supporting a localized name (Hoagie, Hero, etc.).
