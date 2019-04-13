@@ -9,4 +9,5 @@ class BigMac extends Burger {
 		addCondimentApplicable("Big Mac Sauce");
 		tryAddCondiment("Big Mac Sauce");
 	}
+
 }

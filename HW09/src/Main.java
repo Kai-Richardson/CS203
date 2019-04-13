@@ -55,7 +55,7 @@ public class Main {
 
 		println("");
 		bg.addComposingElement("Lettuce");
-		bg.tryAddCondiment("Relish"); //Won't work
+		bg.tryAddCondiment("Relish"); //Won't add
 		println(bg.toString());
 
 	}

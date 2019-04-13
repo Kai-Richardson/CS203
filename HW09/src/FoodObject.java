@@ -41,24 +41,44 @@ public abstract class FoodObject {
 		return ComposingElements;
 	}
 
+	/**
+	 * Method to add a composing element to the FoodObject
+	 * @param newElement add a composing element to the FoodObject
+	 */
 	void addComposingElement(String newElement) {
 		ComposingElements.add(newElement);
 	}
 
+	/**
+	 * Method to get the condiments on a FoodObject
+	 * @return ArrayList of condiments on the FoodObject
+	 */
 	private ArrayList<String> getCondimentsApplied() {
 		return condimentsApplied;
 	}
 
+	/**
+	 * Will attempt to add a condiment, will only work if it's applicable
+	 * @param condiment - condiment to attempt to apply
+	 */
 	void tryAddCondiment(String condiment) {
 		if (this.getCondimentsApplicable().contains(condiment)) {
 			this.condimentsApplied.add(condiment);
 		}
 	}
 
+	/**
+	 *  Method to return all applicable condiments for a FoodObject
+	 * @return ArrayList of applicable condiments
+	 */
 	private ArrayList<String> getCondimentsApplicable() {
 		return condimentsApplicable;
 	}
 
+	/**
+	 * Method to make a given condiment applicable to the FoodObject
+	 * @param condimentApplicable - condiment to make applicable
+	 */
 	void addCondimentApplicable(String condimentApplicable) {
 		this.condimentsApplicable.add(condimentApplicable);
 	}
