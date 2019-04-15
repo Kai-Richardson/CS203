@@ -4,39 +4,63 @@ import java.util.ArrayList;
  * The parent object of any type of food.
  *
  * @author Kai Richardson
- * @version April.12.2019
+ * @version April.14.2019
  */
 public abstract class FoodObject {
 
+	//name strings
 	private String nameDisplay;
 	private String nameScientific;
-
 	private String countryOfOrigin = "";
+
+	//ArrayLists for the elements
 	private ArrayList<String> ComposingElements = new ArrayList<>();
 	private ArrayList<String> condimentsApplied = new ArrayList<>();
 	private ArrayList<String> condimentsApplicable = new ArrayList<>();
 
+	//constructor, init passed args
 	FoodObject(String nameDisplay, String nameScientific) {
 		this.nameDisplay = nameDisplay;
 		this.nameScientific = nameScientific;
 	}
 
+	/**
+	 * Method to get the country of origin for the FoodObject
+	 *
+	 * @return String denoting the country of origin for the FoodObject
+	 */
 	private String getCountryOfOrigin() {
 		return countryOfOrigin;
 	}
 
+	/**
+	 * Method to set the country of origin for the FoodObject
+	 * @param countryOfOrigin String denoting the country of origin for the FoodObject
+	 */
 	void setCountryOfOrigin(String countryOfOrigin) {
 		this.countryOfOrigin = countryOfOrigin;
 	}
 
+	/**
+	 * Method to return the display name of the FoodObject
+	 * @return String denoting the display name of the FoodObject
+	 */
 	private String getNameDisplay() {
 		return nameDisplay;
 	}
 
+	/**
+	 * Method to return the scientific name of the FoodObject
+	 * @return String denoting the scientific name of the FoodObject
+	 */
 	private String getNameScientific() {
 		return nameScientific;
 	}
 
+	/**
+	 * Method to return the composing elements of a FoodObject
+	 * @return ArrayList of the composing elements of the FoodObject
+	 */
 	private ArrayList<String> getComposingElements() {
 		return ComposingElements;
 	}
@@ -83,6 +107,10 @@ public abstract class FoodObject {
 		this.condimentsApplicable.add(condimentApplicable);
 	}
 
+	/**
+	 * Display details about the FoodObject
+	 * @return String describing the FoodObject
+	 */
 	@Override
 	public String toString() {
 		return "Name: " + getNameDisplay() + ", " +

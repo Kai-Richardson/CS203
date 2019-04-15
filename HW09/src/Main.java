@@ -1,5 +1,5 @@
 /**
- * Main class for testing purposes
+ * Main class for testing FoodObjects
  *
  * @author Kai Richardson
  * @version April.12.2019
@@ -60,6 +60,11 @@ public class Main {
 
 	}
 
+	/**
+	 * I really don't like typing sout every time, so I made a function since Java doesn't have macros
+	 *
+	 * @param line Object to feed to println
+	 */
 	private static void println(Object line) {
 		System.out.println(line);
 	}
